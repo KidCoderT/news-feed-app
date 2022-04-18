@@ -24,8 +24,10 @@ def home(request):
             title = a.find("figcaption").get_text()
             img_id = a["href"].split("/")[-1][:-4]
             img_url = IMG_URL.format(img_id, img_id)
-            data.append({"title": title, "tag": tag, "img_url": img_url})
+            data.append(
+                {"title": title, "tag": tag, "img_url": img_url, "link": a["href"]}
+            )
         except Exception as e:
-            print(e)
+            break
 
     return Response(data)
