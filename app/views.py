@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,6 +9,7 @@ BASE_URL = "https://timesofindia.indiatimes.com/"
 IMG_URL = "https://static.toiimg.com/thumb/msid-{},width-500,resizemode-4/{}.jpg"
 
 
+@api_view(["GET"])
 def home(request):
     data = []
 
@@ -26,4 +28,4 @@ def home(request):
         except Exception as e:
             print(e)
 
-    return JsonResponse(data, safe=False)
+    return Response(data)
