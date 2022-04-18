@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://timesofindia.indiatimes.com/"
 IMG_URL = "https://static.toiimg.com/thumb/msid-{},width-500,resizemode-4/{}.jpg"
 
-no_shows = ["how-to", "mobiles", "celebs", "amazon-bestsellers", "spotlight"]
+no_shows = ["how-to", "mobiles", "celebs", "amazon-bestsellers", "spotlight", "tv"]
 
 
 @api_view(["GET"])

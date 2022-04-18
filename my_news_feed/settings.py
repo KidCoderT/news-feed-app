@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-mejkvnxkgp-n$8y4-$kqu0(bs5j^+p^o)#zf-nw1-3ukz#&o%j"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["kct-newsfeed.herokuapp.com/", "127.0.0.1"]
 
 
 # Application definition
