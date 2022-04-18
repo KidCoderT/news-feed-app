@@ -5,15 +5,12 @@ import {
   Flex,
   Heading,
   Spacer,
-  Text,
-  Icon,
-  Select,
   SimpleGrid
 } from '@chakra-ui/react'
 import ThemeToggleButton from './components/ThemeToggleButton'
-import { FaFilter } from 'react-icons/fa'
 import Divider from './components/Divider'
 import FeedItem from './components/FeedItem'
+import { Helmet } from 'react-helmet'
 
 function App() {
   let [feeds, setFeeds] = React.useState([])
@@ -31,6 +28,10 @@ function App() {
 
   return (
     <Box minH="100vh" as="main" marginBottom={50}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>News Feed</title>
+      </Helmet>
       <Container maxW="container.lg" paddingTop={8}>
         {/* Header */}
         <Flex paddingRight={8} paddingLeft={8} align="center">
@@ -56,7 +57,7 @@ function App() {
               key={idx}
               title={data['title']}
               imgUrl={data['img_url']}
-              link={data['url']}
+              link={data['link']}
               tag={data['tag']}
             />
           ))}
