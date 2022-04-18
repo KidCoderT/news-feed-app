@@ -5,12 +5,13 @@ import {
   Text,
   Link,
   Tag,
+  Image,
   useColorModeValue
 } from '@chakra-ui/react'
 import Divider from './Divider'
 import PropTypes from 'prop-types'
 
-const FeedItem = ({ title, author, date, description, link, tag }) => {
+const FeedItem = ({ title, imgUrl, link, tag }) => {
   const bgColor = useColorModeValue('light.400', 'dark.400')
   const tagColor = useColorModeValue('light.600', 'dark.900')
   const borderColor = useColorModeValue('light.600', 'dark.600')
@@ -21,26 +22,10 @@ const FeedItem = ({ title, author, date, description, link, tag }) => {
       borderWidth={5}
       borderColor={borderColor}
     >
-      <Flex minH="340px" p={4} direction="column">
+      <Image src={imgUrl} />
+      <Flex minH="140px" p={4} direction="column">
         <Text fontFamily={'Fredoka One'} fontSize="2xl">
           {title}
-        </Text>
-
-        <Divider
-          height={0.5}
-          colorOnDark={'whiteAlpha.800'}
-          colorOnLight={'blackAlpha.800'}
-        />
-
-        <Text fontFamily={'Fredoka One'} fontSize="xl">
-          {' '}
-          - {author}
-        </Text>
-        <Text fontFamily={'Fredoka One'} fontSize="xl">
-          {date}
-        </Text>
-        <Text fontFamily={'Fredoka One'} marginTop={5}>
-          {description}
         </Text>
 
         <Spacer />
@@ -66,9 +51,7 @@ const FeedItem = ({ title, author, date, description, link, tag }) => {
 
 FeedItem.propTypes = {
   title: PropTypes.string,
-  author: PropTypes.string,
-  date: PropTypes.string,
-  description: PropTypes.string,
+  imgUrl: PropTypes.string,
   link: PropTypes.string,
   tag: PropTypes.string
 }
