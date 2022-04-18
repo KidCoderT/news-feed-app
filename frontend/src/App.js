@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   let getFeeds = async () => {
-    let response = await fetch('http://localhost:8000/')
+    let response = await fetch('/data/')
     let data = await response.json()
     console.log(data)
     setFeeds(data)

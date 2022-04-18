@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://timesofindia.indiatimes.com/"
 IMG_URL = "https://static.toiimg.com/thumb/msid-{},width-500,resizemode-4/{}.jpg"
 
+no_shows = ["how-to", "mobiles", "celebs", "amazon-bestsellers", "spotlight"]
+
 
 @api_view(["GET"])
 def home(request):
@@ -21,6 +23,9 @@ def home(request):
         try:
             a = feed.find("a")
             tag = a["href"].split("/")[3]
+            if tag in no_shows:
+                continue
+
             title = a.find("figcaption").get_text()
             img_id = a["href"].split("/")[-1][:-4]
             img_url = IMG_URL.format(img_id, img_id)

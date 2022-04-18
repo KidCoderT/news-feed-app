@@ -16,14 +16,21 @@ const FeedItem = ({ title, imgUrl, link, tag }) => {
   const tagColor = useColorModeValue('light.600', 'dark.900')
   const borderColor = useColorModeValue('light.600', 'dark.600')
   return (
-    <Box
+    <Flex
       bg={bgColor}
       borderRadius="xl"
       borderWidth={5}
       borderColor={borderColor}
+      direction="column"
     >
-      <Image src={imgUrl} />
-      <Flex minH="140px" p={4} direction="column">
+      <Image src={imgUrl} fallbackSrc="https://via.placeholder.com/500" />
+      <Spacer />
+      <Divider
+        height={1}
+        colorOnDark={'whiteAlpha.800'}
+        colorOnLight={'blackAlpha.800'}
+      />
+      <Flex minH="140px" maxH="200px" p={4} direction="column">
         <Text fontFamily={'Fredoka One'} fontSize="2xl">
           {title}
         </Text>
@@ -45,7 +52,7 @@ const FeedItem = ({ title, imgUrl, link, tag }) => {
           <Tag bg={tagColor}>{tag}</Tag>
         </Flex>
       </Flex>
-    </Box>
+    </Flex>
   )
 }
 
